@@ -158,7 +158,7 @@ textarea.input-box {
 			<img alt="상품이미지 ${item.name}" src="/item/display?id=${item.id}" width="300" id="picture1">
 	
 			<label class="form-label">상품파일</label> <input type="file" id="picture"
-				name="picture" class="input-box" required>
+				name="picture" class="input-box">
 
 			<label class="form-label">상품상세설명</label> <textarea id="description"
 				name="description" placeholder="상품 상세 설명을 입력하세요"
