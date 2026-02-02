@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>회원 목록 페이지</title>
+<title>상품 목록 페이지</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap"
 	rel="stylesheet">
