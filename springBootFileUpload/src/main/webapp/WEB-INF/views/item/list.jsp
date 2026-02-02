@@ -190,15 +190,15 @@ h2 {
 		<span class="deco-icon" style="top: 20px; left: 20px;">🍓</span> <span
 			class="deco-icon" style="top: 20px; right: 20px;">🧸</span>
 
-		<h2>소중한 회원 목록</h2>
+		<h2>소중한 상품 목록</h2>
 		
 		<table class="bbo-table">
 			<thead>
 				<tr>
 					<th width="10%">ID</th>
-					<th width="10%">NAME</th>
-					<th width="10%">PRICE</th>
-					<th width="70%">URL</th>
+					<th width="15%">NAME</th>
+					<th width="15%">PRICE</th>
+					<th width="60%">URL</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -206,7 +206,7 @@ h2 {
 					<c:when test="${not empty itemList}">
 						<c:forEach var="item" items="${itemList}">
 							<tr onclick="location.href='/item/detail?id=${item.id}'">
-								<td>${item.name}</td>
+								<td>${item.id}</td>
 								<td style="text-align: center; vertical-align: middle;"><a
 									href="/item/detail?id=${item.id}" class="title-link"> <c:out
 											value="${item.name}" />

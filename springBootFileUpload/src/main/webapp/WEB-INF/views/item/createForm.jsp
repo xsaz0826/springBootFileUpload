@@ -146,7 +146,7 @@ textarea.input-box {
 			<label class="form-label">상품이름</label> <input type="text" id="name"
 				name="name" class="input-box" placeholder="상품이름을 입력하세요" required>
 
-			<label class="form-label">상품가격</label> <input type="text" id="price"
+			<label class="form-label">상품가격(KRW)</label> <input type="text" id="price"
 				name="price" class="input-box" placeholder="상품가격을 입력하세요" required>
 
 			<label class="form-label">상품파일</label> <input type="file" id="picture"

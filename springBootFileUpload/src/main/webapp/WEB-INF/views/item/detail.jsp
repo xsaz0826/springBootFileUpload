@@ -177,7 +177,7 @@ body {
 
 			<div class="btn-group">
 				<a href="/item/updateForm?id=${item.id}" class="btn btn-edit">✏️ 상품수정하기</a> 
-				<a href="/item/delete?no=${item.id}" class="btn btn-delete"
+				<a href="/item/delete?id=${item.id}" class="btn btn-delete"
 					onclick="return confirm('정말 삭제하시겠습니까? ( •́ ̯ •̀ )')">🗑️ 상품삭제하기</a>
 			</div>
 		</div>

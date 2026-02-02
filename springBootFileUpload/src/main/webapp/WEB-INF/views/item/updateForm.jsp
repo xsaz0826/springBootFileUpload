@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>MEMBER UPDATE | 정보 수정하기 ✎</title>
+<title>ITEM | 수정하기 ✏️</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nanum+Gothic:wght@400;700&display=swap"
 	rel="stylesheet">
@@ -87,62 +85,47 @@ textarea.input-box {
 }
 /* 버튼들을 감싸는 컨테이너 */
 .btn-group {
-	display: flex; /* 가로 정렬의 핵심 */
-	gap: 10px; /* 버튼 사이 간격 */
-	margin-top: 30px;
-	width: 100%; /* 부모 너비에 꽉 차게 */
+    display: flex;       /* 가로 정렬의 핵심 */
+    gap: 10px;           /* 버튼 사이 간격 */
+    margin-top: 30px;
+    width: 100%;         /* 부모 너비에 꽉 차게 */
 }
 
 /* 내부의 모든 요소(a, button)를 동일한 크기로 고정 */
-.btn-group>* {
-	flex: 1; /* 1:1:1 비율로 정확히 나눔 */
-	text-decoration: none;
-	border: none;
-	padding: 0;
-	margin: 0;
+.btn-group > * {
+    flex: 1;             /* 1:1:1 비율로 정확히 나눔 */
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 /* 실제 버튼 디자인 */
 .custom-btn {
-	width: 100%;
-	height: 50px;
-	border: 3px solid #5d5d5d;
-	border-radius: 15px;
-	font-family: 'Gaegu', cursive;
-	font-size: 19px;
-	font-weight: bold;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	transition: all 0.1s;
+    width: 100%;
+    height: 50px;
+    border: 3px solid #5d5d5d;
+    border-radius: 15px;
+    font-family: 'Gaegu', cursive;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all 0.1s;
 }
 
 /* 색상 지정 */
-.bg-list {
-	background-color: #b2e2f2;
-	box-shadow: 0 4px 0 #88b7c5;
-	color: #4a4a4a;
-}
-
-.bg-send {
-	background-color: #ffb7b2;
-	box-shadow: 0 4px 0 #d49a96;
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.bg-reset {
-	background-color: #fff9ae;
-	box-shadow: 0 4px 0 #d8d38b;
-	color: #4a4a4a;
-}
+.bg-list  { background-color: #b2e2f2; box-shadow: 0 4px 0 #88b7c5; color: #4a4a4a; }
+.bg-send  { background-color: #ffb7b2; box-shadow: 0 4px 0 #d49a96; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.1); }
+.bg-reset { background-color: #fff9ae; box-shadow: 0 4px 0 #d8d38b; color: #4a4a4a; }
 
 /* 누르는 효과 */
 .custom-btn:active {
-	transform: translateY(3px);
-	box-shadow: none !important;
+    transform: translateY(3px);
+    box-shadow: none !important;
 }
 
 /* 아기자기한 데코레이션 */
@@ -158,49 +141,38 @@ textarea.input-box {
 		<span class="deco-icon" style="top: 20px; left: 20px;">📌</span> <span
 			class="deco-icon" style="top: 20px; right: 20px;">✨</span>
 
-		<h2>${member.name}님정보 수정하기 ✎</h2>
+		<h2>UPDATE</h2>
 
-		<form:form modelAttribute="member" action="/member/update" method="post">
-				<label class="form-label">No. 회원 번호</label> <input type="text"
-					id="no" name="no" value="${member.no}" class="input-box" readonly>
+		<form action="/item/update" method="post" enctype="multipart/form-data">
+		
+			<label class="form-label">상품아이디</label> <input type="text" id="id"
+				name="id" class="input-box" value="${item.id}" readonly>
+		
+			<label class="form-label">상품이름</label> <input type="text" id="name"
+				name="name" class="input-box" value="${item.name}" required>
 
-				<label class="form-label">Id. 회원 아이디</label> <input type="text"
-					id="id" name="id" value="${member.id}" class="input-box" readonly>
+			<label class="form-label">상품가격(KRW)</label> <input type="text" id="price"
+				name="price" class="input-box" value="${item.price}" required>
 
-				<label class="form-label">Name. 이름</label> <input type="text"
-					id="name" name="name" value="${member.name}" class="input-box"
-					required> <label class="form-label">Pw. 암호</label> <input
-					type="password" id="pw" name="pw" value="${member.pw}"
-					class="input-box" required>
+			<label class="form-label">상품이미지</label>
+			<img alt="상품이미지 ${item.name}" src="/item/display?id=${item.id}" width="300" id="picture1">
+	
+			<label class="form-label">상품파일</label> <input type="file" id="picture"
+				name="picture" class="input-box" required>
 
+			<label class="form-label">상품상세설명</label> <textarea id="description"
+				name="description" placeholder="상품 상세 설명을 입력하세요"
+				class="input-box" rows="5" cols="20">"${item.description}"
+				</textarea>
 
-				<form:select path="authList[0].auth">
-					<form:option value="" label="=== 선택해 주세요 ===" />
-					<form:option value="ROLE_USER" label="사용자" />
-					<form:option value="ROLE_MEMBER" label="회원" />
-					<form:option value="ROLE_ADMIN" label="관리자" />
-				</form:select>
-				<form:select path="authList[1].auth">
-					<form:option value="" label="=== 선택해 주세요 ===" />
-					<form:option value="ROLE_USER" label="사용자" />
-					<form:option value="ROLE_MEMBER" label="회원" />
-					<form:option value="ROLE_ADMIN" label="관리자" />
-				</form:select>
-				<form:select path="authList[2].auth">
-					<form:option value="" label="=== 선택해 주세요 ===" />
-					<form:option value="ROLE_USER" label="사용자" />
-					<form:option value="ROLE_MEMBER" label="회원" />
-					<form:option value="ROLE_ADMIN" label="관리자" />
-				</form:select>
-
-		<div class="btn-group">
-			<a href="/member/memberList" class="custom-btn bg-list">📋 회원리스트</a>
-
-			<button type="submit" class="custom-btn bg-send">🚀 회원수정전송</button>
-
-			<button type="reset" class="custom-btn bg-reset">🧹 회원수정취소</button>
-		</div>
-		</form:form>
+			<div class="btn-group">
+				<a href="/item/list" class="custom-btn bg-list">📋 상품리스트</a>
+    
+    <button type="submit" class="custom-btn bg-send">🚀 수정하기</button>
+    
+    <button type="reset" class="custom-btn bg-reset">🧹 취소하기</button>
+			</div>
+		</form>
 	</div>
 
 </body>
