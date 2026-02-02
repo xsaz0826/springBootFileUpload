@@ -195,10 +195,10 @@ h2 {
 		<table class="bbo-table">
 			<thead>
 				<tr>
-					<th width="10%">ID</th>
+					<th width="13%">ID</th>
 					<th width="15%">NAME</th>
 					<th width="15%">PRICE</th>
-					<th width="60%">URL</th>
+					<th width="57%">URL</th>
 				</tr>
 			</thead>
 			<tbody>
