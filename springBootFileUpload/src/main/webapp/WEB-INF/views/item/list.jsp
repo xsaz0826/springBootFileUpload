@@ -192,50 +192,34 @@ h2 {
 
 		<h2>소중한 회원 목록</h2>
 		
-		<div class="search-container">
-			<form action="/member/search" method="get" class="search-form">
-				<select name="searchType" class="search-select">
-					<option value="id"
-						${param.searchType == 'id' ? 'selected' : ''}>ID</option>
-					<option value="name"
-						${param.searchType == 'name' ? 'selected' : ''}>NAME</option>
-				</select> <input type="text" name="keyword" class="search-input"
-					placeholder="Search story..." value="${param.keyword}">
-				<button type="submit" class="btn-search">SEARCH</button>
-			</form>
-		</div>
-		
 		<table class="bbo-table">
 			<thead>
 				<tr>
-					<th width="10%">NO</th>
-					<th width="20%">ID</th>
-					<th width="20%">PW</th>
-					<th width="20%">NAME</th>
-					<th width="30%">REGDATE</th>
+					<th width="10%">ID</th>
+					<th width="10%">NAME</th>
+					<th width="10%">PRICE</th>
+					<th width="70%">URL</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
-					<c:when test="${not empty memberList}">
-						<c:forEach var="member" items="${memberList}">
-							<tr onclick="location.href='/member/detail?no=${member.no}'">
-								<td>${member.no}</td>
+					<c:when test="${not empty itemList}">
+						<c:forEach var="item" items="${itemList}">
+							<tr onclick="location.href='/item/detail?id=${item.id}'">
+								<td>${item.name}</td>
 								<td style="text-align: center; vertical-align: middle;"><a
-									href="/member/detail?no=${member.no}" class="title-link"> <c:out
-											value="${member.id}" />
+									href="/item/detail?id=${item.id}" class="title-link"> <c:out
+											value="${item.name}" />
 								</a></td>
-								<td>${member.pw}</td>
-								<td>${member.name}</td>
-								<td><fmt:formatDate value="${member.regDate}"
-										pattern="yy.MM.dd" /></td>
+								<td>${item.price}</td>
+								<td>${item.url}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="5" style="padding: 50px; color: #888;">아직 등록된
-								회원이 없어요.. ( ˃̣̣̥᷄⌓˂̣̣̥᷅ )</td>
+							<td colspan="4" style="padding: 50px; color: #888;">아직 등록된
+								상품 목록이 없어요.. ( ˃̣̣̥᷄⌓˂̣̣̥᷅ )</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
@@ -243,8 +227,8 @@ h2 {
 		</table>
 
 		<div class="btn-box">
-			<a href="/member/memberList" class="btn-write">✏️ 회원리스트</a>
-			<a href="/member/insertForm" class="btn-write">✏️ 회원가입</a>
+			<a href="/item/list" class="btn-write">✏️ 상품목록리스트</a>
+			<a href="/item/createForm" class="btn-write">✏️ 상품등록</a>
 		</div>
 
 		<div class="footer-msg">💌 [ SYSTEM: CONNECTED TO

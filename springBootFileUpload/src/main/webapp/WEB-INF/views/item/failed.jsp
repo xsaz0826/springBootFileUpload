@@ -106,7 +106,7 @@ h1 {
 
 		<div class="btn-group">
 			<a href="/item/createForm"><button class="btn btn-save">상품등록 🚀</button></a>
-			<a href="/item/itemList"><button class="btn btn-save">상품리스트 🚀</button></a>
+			<a href="/item/list"><button class="btn btn-save">상품리스트 🚀</button></a>
 		</div>
 	</div>
 

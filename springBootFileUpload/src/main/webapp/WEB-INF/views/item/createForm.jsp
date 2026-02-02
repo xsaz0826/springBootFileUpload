@@ -157,7 +157,7 @@ textarea.input-box {
 				</textarea>
 
 			<div class="btn-group">
-				<a href="/item/itemList" class="custom-btn bg-list">📋 상품이미지리스트</a>
+				<a href="/item/list" class="custom-btn bg-list">📋 상품리스트</a>
     
     <button type="submit" class="custom-btn bg-send">🚀 상품등록</button>
     
